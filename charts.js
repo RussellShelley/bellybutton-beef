@@ -135,7 +135,7 @@ var trace1 = {
   y: sample_values,
   text: otu_labels,
   mode: 'markers',
-  marker:{
+  marker:{colorscale: 'Portland',
     color: otu_id,
     size: sample_values
   }

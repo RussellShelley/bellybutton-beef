@@ -1,0 +1,32 @@
+
+
+.jumbotron {
+    
+    background-size: 100% 100%;
+    text-align: center;
+  }
+.jumbotron::before{
+    content: "";
+    background-image: url("../bacteria.jpg");
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}  
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #8bc6cc;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+}
+.panel-body {
+    padding: 15px;
+    background-color: #8bc6cc;
+}
