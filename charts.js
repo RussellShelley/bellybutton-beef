@@ -27,9 +27,7 @@ function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
   buildMetadata(newSample);
   buildCharts(newSample);
-  
-}
-
+  }
 // Demographics Panel 
 function buildMetadata(sample) {
   d3.json("samples.json").then((data) => {
@@ -79,32 +77,22 @@ function buildCharts(sample) {
   console.log(otu_id);
 
   var otu_labels = filteredObj.otu_labels;
-    console.log(otu_labels)
+  console.log(otu_labels)
   var sample_values = filteredObj.sample_values;
   console.log(sample_values);
 
   // 3. Create a variable that holds the washing frequency.
   var wfreq = parseFloat(metaResult.wfreq);
   console.log(wfreq)
-  
-    
-
-
-
-
-
+   
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
   var top10ids = otu_id.slice(0,10);
   console.log(top10ids);
 
-
   var yticks = top10ids.map(otu =>  `OTU ${otu}`).reverse();
- 
-  console.log(yticks);
-
-
+   console.log(yticks);
 
     // 8. Create the trace for the bar chart. 
   var trace = {
@@ -124,42 +112,35 @@ function buildCharts(sample) {
      
    };
 // 10. Use Plotly to plot the data with the layout. 
-Plotly.newPlot("bar", barData, barLayout);
-//  };
-
-
+  Plotly.newPlot("bar", barData, barLayout);
 
 // 1. Create the trace for the bubble chart.
-var trace1 = {
+  var trace1 = {
   x: otu_id,
   y: sample_values,
   text: otu_labels,
   mode: 'markers',
   marker:{colorscale: 'Portland',
     color: otu_id,
-    size: sample_values
-  }
+    size: sample_values}
   
-};  
+  };  
 
-var bubbleData = [trace1]; 
+  var bubbleData = [trace1]; 
     
 
     // 2. Create the layout for the bubble chart.
-    var bubbleLayout = { title :{ 
-                          text: "Bacteria Cultures Per Sample", 
-                          font: {size: 24} },
-                         xaxis : {title: "OTU IDs"},
-                         hovermode:'closest',
-                         height: 600,
-                         width: 1200
-
-      
+  var bubbleLayout = { title 
+  :{ text: "Bacteria Cultures Per Sample", 
+    font: {size: 24} },
+    xaxis : {title: "OTU IDs"},
+    hovermode:'closest',
+    height: 600,
+    width: 1200
     };
 
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", bubbleData, bubbleLayout)
-
      
         // 4. Create the trace for the gauge chart.
    var trace3 = {
@@ -185,10 +166,11 @@ var bubbleData = [trace1];
     
     // 5. Create the layout for the gauge chart.
    
-    var gaugeLayout = { title :{ text: "Belly Button Washing Frequency", 
-                                  font: {size: 24} },
-                        width: 600,
-                        height: 400 };
+    var gaugeLayout = {
+    title :{ text: "Belly Button Washing Frequency", 
+             font: {size: 24} },
+    width: 600,
+    height: 400 };
   
 
     // 6. Use Plotly to plot the gauge data and layout.
